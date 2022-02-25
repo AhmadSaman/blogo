@@ -1,17 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
-import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
+import { UserContext } from "../lib/context";
 
 function Navbar() {
-  const user = null;
-  const username = null;
+  const { user, username } = useContext(UserContext);
+
   return (
     <div className="navbar">
       <ul>
         <li>
           <Link href={"/"}>
-            <button className="btn-logo">Feed</button>
+            <button className="btn-logo">BLOGO</button>
           </Link>
         </li>
         {/* for the signed in users */}
@@ -24,7 +25,10 @@ function Navbar() {
             </li>
             <li>
               <Link href={`/${username}`}>
-                <img src={`${user?.photoURL}`} alt={`${username}`} />
+                <img
+                  src={user?.photoURL || "/hacker.png"}
+                  alt={`${username}`}
+                />
               </Link>
             </li>
           </>
