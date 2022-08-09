@@ -7,6 +7,7 @@ import { auth, firestore, googleAutoProvider } from "../lib/firebase";
 
 function EnterPage() {
   const { user, username } = useContext(UserContext);
+  console.log("ahmad");
   return (
     <main>
       {user ? (
